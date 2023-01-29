@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Update Product</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/shards.min.css">
+    </head>
+    <body>
+        <div class="container my-5">
+            <h2 class="mb-5">Update Product</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="#" th:action="@{/update/{id}(id=${product.id})}" th:object="${product}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="name" class="col-form-label">Product Id</label>
+                                <input type="text" th:field="*{productId}" class="form-control" id="productid" placeholder="Product Id">
+                                <span th:if="${#fields.hasErrors('productId')}" th:errors="*{productId}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email" class="col-form-label">Product Name</label>
+                                <input type="text" th:field="*{productName}" class="form-control" id="productname" placeholder="Product Name">
+                                <span th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}" class="text-danger"></span>
+                            </div>
+                             <div class="form-group col-md-6">
+                                <label for="email" class="col-form-label">Unit Price</label>
+                                <input type="text" th:field="*{unitPrice}" class="form-control" id="unitprice" placeholder="Unit Price">
+                                <span th:if="${#fields.hasErrors('unitPrice')}" th:errors="*{unitPrice}" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <input type="submit" class="btn btn-primary" value="Update Product">
+                            </div>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
