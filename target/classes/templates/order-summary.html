@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<header>
+
+		<div class="topnav" id="myTopnav">
+			<a href="#shop" class="active">Shop</a> <a href="/index">Home</a> <a
+				href="/contact">Contact</a> <a href="javascript:void(0);"
+				class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i>
+			</a>
+		</div>
+
+		<div class="text-box">
+			<h1 id="title">Madhurams</h1>
+			<hr>
+		</div>
+	</header>
+	<div class="container">
+		<form id="survey-form" method="GET">
+
+			<p id="description">Thanks for your order....</p>
+			<p id="description">Please check your email for order
+				confirmation and feel free to contact us..</p>
+
+			<table class="shop_table my_account_orders">
+
+				<thead>
+					<tr>
+						<th class="order-number">Product</th>
+						<th class="order-quantity">Quantity</th>
+						<th class="order-status">Unit Price</th>
+						<th class="total">Total</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr class="order" th:each="order : ${orderList}">
+						<td class="order-number" data-title="Product"><span th:text="${order.productId}"></span>
+						</td>
+
+						<td class="quantity" data-title="Quantity"><span th:text="${order.quantity}"></span></td>
+
+						<td class="unit-price" data-title="Unit Price"><span th:text="${order.unitPrice}"></span></td>
+
+						<td class="order-total" data-title="Total"><span
+							class="amount">£ 99.98</span></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+
+		</form>
+	</div>
+
+	<footer>
+		<div class="footer-div">
+			<a href="terms.html">Terms & conditions</a>
+		</div>
+		<div class="footer-div">
+			<a href="privacy.html">Privacy Policy</a>
+		</div>
+		<img
+			src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"
+			border="0" alt="PayPal Acceptance Mark"
+			style="width: 180px; height: 50px">
+		<p class="footer">
+			&copy 2022 Madhurams Limited</a>
+		</p>
+	</footer>
+</body>
+</html>

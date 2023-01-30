@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="script.js"></script>
+<script
+	src="https://www.paypal.com/sdk/js?client-id=AeeTuY3QkptCYKfMkrQTNwCj_4oI-EoXvoZLkU58BsDdB8HMOSdRCVbimJRtWJza-AmU2KNslPRRC1rl&currency=GBP"></script>
+</head>
+<body>
+	<header>
+
+		<div class="topnav" id="myTopnav">
+			<a href="#shop" class="active">Shop</a> <a href="/index">Home</a> <a
+				href="/contact">Contact</a> <a href="javascript:void(0);"
+				class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i>
+			</a>
+		</div>
+
+		<div class="text-box">
+			<h1 id="title">Madhurams</h1>
+			<hr>
+			<p id="description">Please order for Banaganapalli(£ 22.99/box,
+				Approx 3.5 Kgs , 6-10 pcs) and Pedha Rasalu(£ 23.99/box, Approx 3.5
+				Kgs , 6-10 pcs) for deliveries starting from Saturday 01-May-2023.
+				You will receive a confirmation email for a successful order.</p>
+
+		</div>
+	</header>
+	<div class="container">
+		<form action="#" th:action="@{/save}" th:object="${Orders}"
+			method="post" id="survey-form">
+
+			<div class="labels">
+				<label id="name-label" for="name">* Name</label>
+			</div>
+			<div class="input-tab">
+				<input class="input-field" type="text" field="*{name}" id="name"
+					name="name" placeholder="Enter your name" required />
+			</div>
+
+			<div class="labels">
+				<label id="email-label" for="email">* Email</label>
+			</div>
+			<div class="input-tab">
+				<input class="input-field" type="email" field="*{email}" id="email"
+					name="email" placeholder="email@email.com" required />
+			</div>
+
+			<div class="labels">
+				<label id="number-label" for="number">* Mobile</label>
+			</div>
+			<div class="input-tab">
+				<input class="input-field" type="number" id="mobile" name="mobile"
+					required field="*{mobile}">
+			</div>
+
+
+			<div th:each="product : ${products}">
+				<div class="labels">
+					<label for="dropdown" th:text="${product.ProductName}"></label>
+				</div>
+				<div class="input-tab"
+					th:with="pname='updatecart('+ ${product.productId}+ ')'">
+					<select id="dropdown" th:name="${product.productId}"
+						th:onchange="updateCart([[${product.productId}+'-'+${product.unitPrice}]])">
+						<option disabled value selected>Select Qty</option>
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="labels">
+				<label id="number-label" for="total">Total (£)</label>
+			</div>
+			<div class="input-tab">
+				<input class="hidden-border" type="text" id="total" name="total" field="[[*{total}]]" 
+					readonly value="0.00">
+			</div>
+
+			<div class="labels">
+				<label for="dropdown">* Collection Point</label>
+			</div>
+			<div class="input-tab">
+				<select id="dropdown" name="collPoint" field="*{collPoint}" required>
+					<option disabled value selected>Select your location</option>
+					<option th:each="collectionPoint : ${collectionPoints}"
+						th:value="${collectionPoint.collectionPoint}"
+						th:text="${collectionPoint.collectionPoint}"></option>
+				</select>
+			</div>
+
+
+			<div class="btn">
+				<button id="submit" type="submit" disabled>Proceed to
+					PayPal</button>
+				<br> <img
+					src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_secured_by_pp_2line.png"
+					alt="Check out with PayPal"
+					style="width: 80px; height: 25px; margin-top: 10px" />
+
+			</div>
+
+		</form>
+	</div>
+
+	<footer>
+		<div class="footer-div">
+			<a href="/terms">Terms & conditions</a>
+		</div>
+		<div class="footer-div">
+			<a href="/privacy">Privacy Policy</a>
+		</div>
+		<img
+			src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"
+			border="0" alt="PayPal Acceptance Mark"
+			style="width: 180px; height: 50px">
+
+		<p>
+			&copy 2022 Madhurams Limited</a>
+		</p>
+	</footer>
+</body>
+</html>

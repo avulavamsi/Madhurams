@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<header>
+
+		<div class="topnav" id="myTopnav">
+			<a href="#contact" class="active">Contact</a> <a href="/index">Home</a>
+			<a href="/shop">Shop</a> <a href="javascript:void(0);" class="icon"
+				onclick="myFunction()"> <i class="fa fa-bars"></i>
+			</a>
+		</div>
+
+		<div class="text-box">
+			<h1 id="title">Madhurams</h1>
+			<hr>
+		</div>
+	</header>
+	<div class="container">
+		<form id="survey-form" method="GET">
+			<div>
+				<p class="contact">We are here to help!</p>
+			</div>
+			<div>
+				<p class="contact">We love our customers, so feel free to shoot
+					us a message or give us a call!</p>
+			</div>
+			<div>
+				<p class="contact">Madhurams</p>
+			</div>
+			<div>
+				<p class="contact">
+					Unit-S7, Ashely House<br> Vale Industrial Park<br> Tolpits
+					Lane<br> Watford<br> WD18 9QP
+				</p>
+			</div>
+			<div>
+				<p class="contact">
+					<a href="tel:0779966188">0779966188</a>
+				</p>
+			</div>
+			<div>
+				<p class="contact">
+					<a href="mailto:info@madhurams.co.uk" target="_new">info@madhurams.co.uk</a>
+				</p>
+			</div>
+		</form>
+	</div>
+
+	<footer>
+		<div class="footer-div">
+			<a href="/terms">Terms & conditions</a>
+		</div>
+		<div class="footer-div">
+			<a href="/privacy">Privacy Policy</a>
+		</div>
+		<img
+			src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"
+			border="0" alt="PayPal Acceptance Mark"
+			style="width: 180px; height: 50px">
+		<p class="footer">&copy 2022 Madhurams Limited</a></p>
+</footer>
+</body>
+</html>

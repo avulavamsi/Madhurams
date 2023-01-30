@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/styles.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/script.js}"></script>
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header>
+
+		<div class="topnav" id="myTopnav">
+			<a href="#home" class="active">Home</a> <a href="/shop">Shop</a>
+			<a href="/contact">Contact</a> <a href="javascript:void(0);"
+				class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i>
+			</a>
+		</div>
+
+		<div class="text-box">
+			<h1 id="title">Madhurams</h1>
+			<hr>
+			<link rel="icon" type="image/png" sizes="32x32"
+				href="images/favicon.png">
+		</div>
+	</header>
+	<div class="container">
+		<form id="survey-form" method="GET">
+			<p id="description">Welcome to Madhurams! It is all about
+				mangoes, the king of fruits, where we bring you the freshest and the
+				most delicious mangoes from the best orchards.</p>
+			<p class="hide-mobile">Our website is dedicated to providing you
+				with all the information you need about our products and services.
+				Whether you're a mango lover, curious about different varieties of
+				mangoes, looking for a specific variety, or just want to place an
+				order, our website is the place to be. We hope you will enjoy
+				feasting our mangoes soon!</p>
+
+
+			<div class="clearfix"></div>
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="images/1.jpg"> <img th:src="@{images/1.jpg}"
+						alt="Pedha Rasalu" width="600" height="400">
+					</a>
+					<!--<div class="desc">  </div>-->
+				</div>
+			</div>
+
+
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="images/2.jpg"> <img src="images/2.jpg"
+						alt="Forest" width="600" height="400">
+					</a>
+				</div>
+			</div>
+
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="images/3.jpg"> <img src="images/3.jpg"
+						alt="Northern Lights" width="600" height="400">
+					</a>
+				</div>
+			</div>
+
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="images/4.jpg"> <img src="images/4.jpg"
+						alt="Mountains" width="600" height="400">
+					</a>
+				</div>
+			</div>
+
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="images/5.jpg"> <img src="images/5.jpg"
+						alt="Towers" width="600" height="400">
+					</a>
+				</div>
+			</div>
+
+			<div class="responsive">
+				<div class="gallery">
+					<a target="_blank" href="images/6.jpg"> <img src="images/6.jpg"
+						alt="Towers" width="600" height="400">
+					</a>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+
+		</form>
+	</div>
+
+	<footer>
+		<div class="footer-div">
+			<a href="/terms">Terms & conditions</a>
+		</div>
+		<div class="footer-div">
+			<a href="/privacy">Privacy Policy</a>
+		</div>
+		<img
+			src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"
+			border="0" alt="PayPal Acceptance Mark"
+			style="width: 180px; height: 50px">
+			
+		<p>
+			&copy 2022 Madhurams Limited</a>
+		</p>
+
+	</footer>
+</body>
+</html>
