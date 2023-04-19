@@ -15,6 +15,7 @@ public class Products {
 	private String productId;
 	private String productName;
 	private float unitPrice;
+	private boolean activeFlag;
 
 	public Long getId() {
 		return id;
@@ -47,5 +48,15 @@ public class Products {
 	public void setUnitPrice(float unitPrice) {
 		this.unitPrice = unitPrice;
 	}
+
+	public boolean isActiveFlag() {
+		return activeFlag;
+	}
+
+	public void setActiveFlag(boolean activeFlag) {
+		this.activeFlag = activeFlag;
+	}
+
+
 
 }

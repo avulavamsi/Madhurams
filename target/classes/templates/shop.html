@@ -15,8 +15,9 @@
 	<header>
 
 		<div class="topnav" id="myTopnav">
-			<a href="#shop" class="active">Shop</a> <a href="/index">Home</a> <a
-				href="/contact">Contact</a> <a href="javascript:void(0);"
+		     <a href="#shop" class="active">Shop</a>
+			 <a href="/index">Home</a>
+			 <a href="/contact">Contact</a> <a href="javascript:void(0);"
 				class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i>
 			</a>
 		</div>
@@ -36,7 +37,7 @@
 			method="post" id="survey-form">
 
 			<div class="labels">
-				<label id="name-label" for="name">* Name</label>
+				<label id="name-label" for="name">Name</label>
 			</div>
 			<div class="input-tab">
 				<input class="input-field" type="text" field="*{name}" id="name"
@@ -44,7 +45,7 @@
 			</div>
 
 			<div class="labels">
-				<label id="email-label" for="email">* Email</label>
+				<label id="email-label" for="email">Email</label>
 			</div>
 			<div class="input-tab">
 				<input class="input-field" type="email" field="*{email}" id="email"
@@ -52,7 +53,7 @@
 			</div>
 
 			<div class="labels">
-				<label id="number-label" for="number">* Mobile</label>
+				<label id="number-label" for="number">Mobile</label>
 			</div>
 			<div class="input-tab">
 				<input class="input-field" type="number" id="mobile" name="mobile"
@@ -63,12 +64,17 @@
 			<div th:each="product : ${products}">
 				<div class="labels">
 					<label for="dropdown" th:text="${product.ProductName}"></label>
+					<i class="fa fa-info-circle" style="color:#e67e22" th:title="|£ ${product.unitPrice} per box(6-10 pcs)|"></i>
+					
 				</div>
 				<div class="input-tab"
 					th:with="pname='updatecart('+ ${product.productId}+ ')'">
 					<select id="dropdown" th:name="${product.productId}"
-						th:onchange="updateCart([[${product.productId}+'-'+${product.unitPrice}]])">
-						<option disabled value selected>Select Qty</option>
+						th:onchange="updateCart([[${product.productId}+'-'+${product.unitPrice}]])" th:disabled="${!product.activeFlag}">
+						<!--  <option disabled value selected>Select Qty</option>-->
+						<option disabled value selected> 
+						<span th:if="${product.activeFlag}"> Select Qty</span> 
+						<span th:if="${!product.activeFlag}">Sorry, Out of Stock!</span></option>
 						<option value="0">0</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -83,12 +89,11 @@
 				<label id="number-label" for="total">Total (£)</label>
 			</div>
 			<div class="input-tab">
-				<input class="hidden-border" type="text" id="total" name="total" field="[[*{total}]]" 
-					readonly value="0.00">
+				<input class="hidden-border" type="text" id="total" name="total" field="[[*{total}]]" readonly>
 			</div>
 
 			<div class="labels">
-				<label for="dropdown">* Collection Point</label>
+				<label for="dropdown">Collection Point</label>
 			</div>
 			<div class="input-tab">
 				<select id="dropdown" name="collPoint" field="*{collPoint}" required>
@@ -99,15 +104,8 @@
 				</select>
 			</div>
 
-
 			<div class="btn">
-				<button id="submit" type="submit" disabled>Proceed to
-					PayPal</button>
-				<br> <img
-					src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_secured_by_pp_2line.png"
-					alt="Check out with PayPal"
-					style="width: 80px; height: 25px; margin-top: 10px" />
-
+				<button id="submit" type="submit" disabled onclick="goToPay()">Proceed to checkout</button>
 			</div>
 
 		</form>
@@ -120,10 +118,11 @@
 		<div class="footer-div">
 			<a href="/privacy">Privacy Policy</a>
 		</div>
-		<img
+		<!--<img
 			src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"
 			border="0" alt="PayPal Acceptance Mark"
-			style="width: 180px; height: 50px">
+			style="width: 180px; height: 50px">-->
+		<!--<img src="/images/stripe-badge-transparent.png"  border="0" alt="Stripe Acceptance Mark" style="width:120px;height:80px">-->	
 
 		<p>
 			&copy 2022 Madhurams Limited</a>

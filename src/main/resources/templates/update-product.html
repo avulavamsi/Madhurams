@@ -31,6 +31,13 @@
                                 <input type="text" th:field="*{unitPrice}" class="form-control" id="unitprice" placeholder="Unit Price">
                                 <span th:if="${#fields.hasErrors('unitPrice')}" th:errors="*{unitPrice}" class="text-danger"></span>
                             </div>
+                             <div class="form-group col-md-6">
+                                <label for="email" class="col-form-label">Active</label>
+                                <input type="checkbox" th:field="*{activeFlag}" class="form-control" id="activeflag" placeholder="Active">
+                                <span th:if="${#fields.hasErrors('activeFlag')}" th:errors="*{activeFlag}" class="text-danger"></span>
+                            </div>
+                            
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-6 mt-5">

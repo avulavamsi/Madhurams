@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Scope;
 
 @Entity
 @Table(name = "Orders")
@@ -50,9 +51,6 @@ public class Orders {
 
 	@Column(name = "payment")
 	private Boolean payment;
-
-	@Column(name = "confirmation")
-	private Boolean confirmation;
 
 	@Column(name = "delivery")
 	private Boolean delivery;
@@ -123,14 +121,6 @@ public class Orders {
 
 	public void setPayment(Boolean payment) {
 		this.payment = payment;
-	}
-
-	public Boolean getConfirmation() {
-		return confirmation;
-	}
-
-	public void setConfirmation(Boolean confirmation) {
-		this.confirmation = confirmation;
 	}
 
 	public Boolean getDelivery() {

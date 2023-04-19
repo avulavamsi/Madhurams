@@ -25,13 +25,13 @@
 		</div>
 	</header>
 	<div class="container">
-		<form id="survey-form" method="GET">
+		
 
-			<p id="description">Thanks for your order....</p>
+			<p id="description">Thanks for your order number: " <span th:text="${orderRef}"></span></p>
 			<p id="description">Please check your email for order
 				confirmation and feel free to contact us..</p>
 
-			<table class="shop_table my_account_orders">
+			<!-- 		<table class="shop_table my_account_orders">
 
 				<thead>
 					<tr>
@@ -44,22 +44,31 @@
 
 				<tbody>
 					<tr class="order" th:each="order : ${orderList}">
-						<td class="order-number" data-title="Product"><span th:text="${order.productId}"></span>
-						</td>
+						<td class="order-number" data-title="Product"><span
+							th:text="${order.productName}"></span></td>
 
-						<td class="quantity" data-title="Quantity"><span th:text="${order.quantity}"></span></td>
+						<td class="quantity" data-title="Quantity"><span
+							th:text="${order.quantity}"></span></td>
 
-						<td class="unit-price" data-title="Unit Price"><span th:text="${order.unitPrice}"></span></td>
+						<td class="unit-price" data-title="Unit Price"><span
+							th:text="${order.unitPrice}"></span></td>
 
 						<td class="order-total" data-title="Total"><span
-							class="amount">£ 99.98</span></td>
+							class="amount" th:text="${order.itemTotal}"></span></td>
+					</tr>
+
+					<tr class="order">
+						<td class="gt_hidden"></td>
+						<td class="gt_hidden"></td>
+						<td class="gt_hidden"></td>
+						<td><span class="grandtotal" th:text="${grandTotal}"></td>
 					</tr>
 
 				</tbody>
-			</table>
+
+			</table> -->
 
 
-		</form>
 	</div>
 
 	<footer>
@@ -69,10 +78,10 @@
 		<div class="footer-div">
 			<a href="privacy.html">Privacy Policy</a>
 		</div>
-		<img
+		<!-- <img
 			src="https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png"
 			border="0" alt="PayPal Acceptance Mark"
-			style="width: 180px; height: 50px">
+			style="width: 180px; height: 50px"> -->
 		<p class="footer">
 			&copy 2022 Madhurams Limited</a>
 		</p>
